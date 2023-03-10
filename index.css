@@ -5,4 +5,13 @@ body {
     background-attachment: fixed; 
 }
 
+#myTable {
+    width : 90%;
+    margin-top: 5%;
+    margin-left : 5%;
+    background-color: antiquewhite;
+    color : black;
+
+
+}
 
