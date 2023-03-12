@@ -29,6 +29,12 @@ class Obrok
         $query = "SELECT * FROM obrok";
         return mysqli_query($conn, $query);
     }
+
+    public static function deleteByRB($rb, mysqli $conn)
+    {
+        $query = "DELETE FROM obrok WHERE redni_broj = $rb";
+        return mysqli_query($conn, $query);
+    }
 }
 
 ?>
