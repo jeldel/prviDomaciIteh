@@ -7,7 +7,7 @@ if(isset($_POST['naziv_obroka']) && isset($_POST['cena'])
         $obrok = new Obrok(null, $_POST['naziv_obroka'], $_POST['cena'], $_POST['sastojci'], $_POST['id_kuvar']);
 
         $status = Obrok::add($obrok, $conn);
-        //zasto mi vraca failure?
+
         if ($status){
             echo 'Success';
         }else{
