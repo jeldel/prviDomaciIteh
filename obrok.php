@@ -20,8 +20,8 @@ class Obrok
 
     public static function add(Obrok $obrok, mysqli $conn)
     {
-        $query = "INSERT INTO obrok(naziv_obroka,cena,sastojci,id_kuvar) VALUES('$obrok->naziv_obroka','$obrok->cena','$obrok->sastojci','$obrok->id_kuvar')";
-        return $conn->query($query);
+        $query = "INSERT INTO obrok(naziv_obroka,cena,sastojci,id_kuvar) VALUES ('$obrok->naziv_obroka','$obrok->cena','$obrok->sastojci','$obrok->id_kuvar')";
+        return mysqli_query($conn, $query);
     }
 
     public static function getAll(mysqli $conn)

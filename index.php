@@ -86,26 +86,26 @@ else{
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nazivObroka" class="form-label"> Naziv obroka </label>
-                        <input type="text" class="form-control" id="nazivObroka">
+                        <label for="naziv_obroka" class="form-label"> Naziv obroka </label>
+                        <input type="text" class="form-control" name="naziv_obroka">
                     </div>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="cenaObroka" class="form-label"> Cena </label>
-                        <input type="text" class="form-control" id="cenaObroka">
+                        <label for="cena" class="form-label"> Cena </label>
+                        <input type="text" class="form-control" name="cena">
                     </div>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="sastojci" class="form-label"> Sastojci </label>
-                        <input type="text" class="form-control" id="sastojci">
+                        <input type="text" class="form-control" name="sastojci">
                     </div>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="idKuvar" class="form-label"> ID kuvara </label>
-                        <input type="text" class="form-control" id="idKuvar">
+                        <label for="id_kuvar" class="form-label"> ID kuvara </label>
+                        <input type="text" class="form-control" name="id_kuvar">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -121,7 +121,7 @@ else{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    <script src="main.js"></script>
+    <script src="..//Prvi-domaci-iteh/js/main.js"></script>
 </body>
 
 </html>
