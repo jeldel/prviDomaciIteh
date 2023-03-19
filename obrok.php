@@ -26,7 +26,7 @@ class Obrok
 
     public static function getAll(mysqli $conn)
     {
-        $query = "SELECT * FROM obrok";
+        $query = "SELECT * FROM obrok o JOIN kuvar k ON o.id_kuvar = k.id_kuvar";
         return mysqli_query($conn, $query);
     }
 

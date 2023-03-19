@@ -4,6 +4,12 @@ require "../Prvi-domaci-iteh/obrok.php";
 
 session_start();
 
+$poruka = "";
+
+if (isset($_GET['poruka'])) {
+    $poruka = $_GET['poruka'];
+}
+
 $rezultat = Obrok::getAll($conn);
 
 
@@ -30,7 +36,19 @@ if (!$rezultat) {
 
         <div class="container my-3">
             <h1 class="text-center"> Restoran Štutgart </h1>
-            <button type="button" class="btn btn-primary my-4" data-bs-toggle="modal" data-bs-target="#dodajObrokModal"> <!--target i id moraju da imaju isti naziv-->
+
+            <?php
+            if ($poruka != "") {
+            ?>
+
+                <div class="alert alert-info" role="alert">
+                    <?= $poruka ?>
+                </div>
+            <?php
+            }
+            ?>
+
+            <button type="button" class="btn btn-primary my-4" data-bs-toggle="modal" data-bs-target="#dodajObrokModal">
                 Dodaj novi obrok
             </button>
         </div>
@@ -44,7 +62,7 @@ if (!$rezultat) {
                             <th scope="col">Naziv obroka</th>
                             <th scope="col">Cena</th>
                             <th scope="col">Sastojci</th>
-                            <th scope="col"> ID kuvara</th>
+                            <th scope="col"> Kuvar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,10 +73,10 @@ if (!$rezultat) {
                                 <td><?php echo $red["naziv_obroka"] ?></td>
                                 <td><?php echo $red["cena"] ?></td>
                                 <td><?php echo $red["sastojci"] ?></td>
-                                <td><?php echo $red["id_kuvar"] ?></td>
+                                <td><?php echo $red["ime_kuvar"] . " " . $red["prezime_kuvar"] ?> </td>
                                 <td>
-                                <button class = "btn btn-info">Izmeni</button>
-                                <a href='handler/obrisiObrok.php?id="<?php echo $red["redni_broj"]?>"'><button class = "btn btn-danger">Obriši</button></a> 
+                                    <button class="btn btn-info">Izmeni</button>
+                                    <a href='handler/obrisiObrok.php?id="<?php echo $red["redni_broj"] ?>"'><button class="btn btn-danger">Obriši</button></a>
                                 </td>
 
                             </tr>
