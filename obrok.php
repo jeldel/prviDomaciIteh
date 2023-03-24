@@ -35,6 +35,47 @@ class Obrok
         $query = "DELETE FROM obrok WHERE redni_broj = $rb";
         return mysqli_query($conn, $query);
     }
+
+    public static function update(Obrok $obrok, mysqli $conn)
+    {
+        $query = "UPDATE obrok SET naziv_obroka = '$obrok->naziv_obroka' , cena = $obrok->cena ,sastojci = '$obrok->sastojci', id_kuvar = $obrok->id_kuvar WHERE redni_broj = $obrok->redni_broj";
+        return mysqli_query($conn, $query);
+    }
+
+    public static function getOne($rb, mysqli $conn)
+    {
+        $query = "SELECT * FROM obrok o JOIN kuvar k ON o.id_kuvar = k.id_kuvar WHERE redni_broj = $rb";
+        $rs = $conn->query($query);
+
+        //ovo ovde mi ne radi
+        while($red = $rs->fetch_object()){
+            return $red;
+        }
+
+        return null;
+    }
+
+
+    public static function getAllSortedAndSearched($conn, $kuvar, $sortiranje)
+    {
+        $query = "SELECT * FROM obrok o JOIN kuvar k ON o.id_kuvar = k.id_kuvar";
+
+        if($kuvar != 0){
+            $query .= " WHERE o.id_kuvar = " . $kuvar;
+        }
+
+        $query .= " ORDER BY o.cena " . $sortiranje;
+
+        $rs =  $conn->query($query);
+
+        $niz = [];
+
+        while ($red = $rs->fetch_object()){
+            $niz[] = $red;
+        }
+
+        return $niz;
+    }
 }
 
 ?>
